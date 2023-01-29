@@ -107,7 +107,7 @@ char	*get_next_line(int fd)
 	char		*ptr;
 
 	ptr = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || fd > OPEN_MAX)
 		return (NULL);
 	str[fd] = replace_str(fd, ptr, str[fd]);
 	if (str[fd] == NULL)
